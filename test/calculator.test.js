@@ -154,12 +154,14 @@ it('should return 2 for 8 + 9', function() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /************* 7 test cases for basic subtraction with correct input *************/
-it('should return 0 for 3 - 3', function() {
+it('should return 5 for 1 - 3 - 3', function() {
+  document.querySelectorAll("button[value='1']")[0].click();
+  document.querySelectorAll("button[value='-']")[0].click();
 	document.querySelectorAll("button[value='3']")[0].click();
   document.querySelectorAll("button[value='-']")[0].click();
   document.querySelectorAll("button[value='3']")[0].click();
 	document.querySelectorAll("button[value='=']")[0].click();
-	expect(document.querySelector('.display').value).toBe('0');
+	expect(document.querySelector('.display').value).toBe('-5');
 });
 
 it('should return  for 2 - 2', function() {
@@ -540,7 +542,30 @@ it('should return 2  for when -7 is on display, -5 is in memory,  when M- is pre
 });
 
 
+/*m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ TEST FOR M+ m+ m+ m+ m+m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+ m+*/
 
+it('should return 13  for when 5 is on display, 8 is in memory,  when M+ is pressed ', function() {
+  document.querySelectorAll("button[value='4']")[0].click();
+  document.querySelectorAll("button[value='+']")[0].click();
+  document.querySelectorAll("button[value='4']")[0].click();
+  document.querySelectorAll("button[value='=']")[0].click();
+  document.querySelectorAll("button[value='C']")[0].click();
+  document.querySelectorAll("button[value='5']")[0].click();
+  document.querySelectorAll("button[value='M+']")[0].click();
+  expect(document.querySelector('.display').value).toBe('13');
+});
+
+
+it('should return NaN for when 5 is on display, NaN is in memory,  when M+ is pressed ', function() {
+  document.querySelectorAll("button[value='0']")[0].click();
+  document.querySelectorAll("button[value='/']")[0].click();
+  document.querySelectorAll("button[value='0']")[0].click();
+  document.querySelectorAll("button[value='=']")[0].click();
+  document.querySelectorAll("button[value='C']")[0].click();
+  document.querySelectorAll("button[value='5']")[0].click();
+  document.querySelectorAll("button[value='M+']")[0].click();
+  expect(document.querySelector('.display').value).toBe('NaN');
+});
 
 
 
